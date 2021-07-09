@@ -18,7 +18,7 @@ public class Technicia {
 
     public static final String MODID = "technicia";
 
-    public static final ItemGroup BLOCKS = new ItemGroup("blocks_group") {
+    public static final ItemGroup BLOCKS = new ItemGroup("technicia.blocks_group") {
 
         @Override
         public ItemStack makeIcon() {
@@ -26,7 +26,7 @@ public class Technicia {
         }
 
     };
-    public static final ItemGroup ITEMS = new ItemGroup("items_group") {
+    public static final ItemGroup ITEMS = new ItemGroup("technicia.items_group") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ModItems.COPPER_INGOT.get());

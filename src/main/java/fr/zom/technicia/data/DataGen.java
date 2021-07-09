@@ -2,6 +2,7 @@ package fr.zom.technicia.data;
 
 import fr.zom.technicia.Technicia;
 import fr.zom.technicia.data.models.ItemModelGen;
+import fr.zom.technicia.data.other.LangGenerator;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -24,6 +25,7 @@ public class DataGen {
         if(e.includeClient())
         {
             gen.addProvider(new ItemModelGen(gen));
+            gen.addProvider(new LangGenerator(gen));
         }
     }
 }
