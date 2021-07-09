@@ -1,11 +1,8 @@
 package fr.zom.technicia.init;
 
 import fr.zom.technicia.Technicia;
-import fr.zom.technicia.blocks.OreBlock;
 import fr.zom.technicia.items.BaseItem;
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

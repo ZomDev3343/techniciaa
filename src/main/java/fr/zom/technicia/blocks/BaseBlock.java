@@ -2,7 +2,6 @@ package fr.zom.technicia.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.ToolType;
 
 public class BaseBlock extends Block {

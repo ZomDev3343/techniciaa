@@ -8,8 +8,6 @@ import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.fml.RegistryObject;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Arrays;
-
 public class LangGenerator extends LanguageProvider {
 
     public LangGenerator(DataGenerator gen) {
