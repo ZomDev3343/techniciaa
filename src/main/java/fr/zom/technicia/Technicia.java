@@ -26,6 +26,7 @@ public class Technicia {
         }
 
     };
+
     public static final ItemGroup ITEMS = new ItemGroup("technicia.items_group") {
         @Override
         public ItemStack makeIcon() {

@@ -1,6 +1,7 @@
 package fr.zom.technicia.data;
 
 import fr.zom.technicia.Technicia;
+import fr.zom.technicia.data.models.BlockstateGenerator;
 import fr.zom.technicia.data.models.ItemModelGen;
 import fr.zom.technicia.data.other.LangGenerator;
 import net.minecraft.data.DataGenerator;
@@ -26,6 +27,7 @@ public class DataGen {
         {
             gen.addProvider(new ItemModelGen(gen));
             gen.addProvider(new LangGenerator(gen));
+            gen.addProvider(new BlockstateGenerator(gen));
         }
     }
 }
