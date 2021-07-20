@@ -4,6 +4,7 @@ import fr.zom.technicia.Technicia;
 import fr.zom.technicia.data.models.BlockstateGenerator;
 import fr.zom.technicia.data.models.ItemModelGen;
 import fr.zom.technicia.data.other.LangGenerator;
+import fr.zom.technicia.data.recipes.RecipeGenerator;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -20,7 +21,7 @@ public class DataGen {
 
         if(e.includeServer())
         {
-
+            gen.addProvider(new RecipeGenerator(gen));
         }
 
         if(e.includeClient())

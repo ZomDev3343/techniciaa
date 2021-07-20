@@ -25,8 +25,8 @@ public class OreGeneration {
         if(e.getCategory() != Biome.Category.NETHER && e.getCategory() != Biome.Category.THEEND)
         {
 
-            generateOverworldOre(e, ModBlocks.COPPER_ORE.get(), 12, 25, 80);
-            generateOverworldOre(e, ModBlocks.OSMIUM_ORE.get(), 8, 25, 70);
+            generateOverworldOre(e, ModBlocks.COPPER_ORE.get(), 16, 25, 80);
+            generateOverworldOre(e, ModBlocks.OSMIUM_ORE.get(), 10, 25, 70);
             generateOverworldOre(e, ModBlocks.SILVER_ORE.get(), 6, 17, 55);
             generateOverworldOre(e, ModBlocks.LEAD_ORE.get(), 5, 17, 35);
             generateOverworldOre(e, ModBlocks.TUNGSTEN_ORE.get(), 6, 15, 35);
@@ -35,9 +35,11 @@ public class OreGeneration {
 
         }else if(e.getCategory() == Biome.Category.NETHER)
         {
-
+            generateNetherOre(e, ModBlocks.TUNGSTEN_ORE.get(), 5, 20, 60);
+            generateNetherOre(e, ModBlocks.NIOBIUM_ORE.get(), 4, 20, 60);
         }else if(e.getCategory() == Biome.Category.THEEND)
         {
+            generateEndOre(e, ModBlocks.PLATINUM_ORE.get(), 6, 15, 80);
 
         }
 
