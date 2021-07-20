@@ -1,20 +1,19 @@
 package fr.zom.technicia.data.recipes;
 
+import com.google.gson.JsonObject;
 import fr.zom.technicia.Technicia;
 import fr.zom.technicia.init.ModBlocks;
 import fr.zom.technicia.init.ModItems;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.data.ShapedRecipeBuilder;
-import net.minecraft.data.ShapelessRecipeBuilder;
+import net.minecraft.data.*;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.data.ForgeRecipeProvider;
 
+import java.nio.file.Path;
 import java.util.function.Consumer;
 
-public class RecipeGenerator extends ForgeRecipeProvider {
+public class RecipeGenerator extends RecipeProvider {
 
     public RecipeGenerator(DataGenerator generatorIn) {
         super(generatorIn);
@@ -48,7 +47,7 @@ public class RecipeGenerator extends ForgeRecipeProvider {
                 .pattern("AAA")
                 .pattern("AAA")
                 .define('A', ingots)
-                .unlockedBy("unlock", hasItems(ingots))
+                .unlockedBy("unlock", InventoryChangeTrigger.Instance.hasItems(ingots))
                 .save(consumer, new ResourceLocation(Technicia.MODID, name));
     }
 
@@ -56,14 +55,8 @@ public class RecipeGenerator extends ForgeRecipeProvider {
     {
         ShapelessRecipeBuilder.shapeless(ingots, 9)
                 .requires(block)
-                .unlockedBy("unlock", hasItems(block))
+                .unlockedBy("unlock", InventoryChangeTrigger.Instance.hasItems(block))
                 .save(consumer, new ResourceLocation(Technicia.MODID, name));
     }
-
-    private InventoryChangeTrigger.Instance hasItems(IItemProvider... items)
-    {
-        return InventoryChangeTrigger.Instance.hasItems(items);
-    }
-
 
 }

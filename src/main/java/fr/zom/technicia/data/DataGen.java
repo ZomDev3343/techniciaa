@@ -21,8 +21,8 @@ public class DataGen {
 
         if(e.includeServer())
         {
-            gen.addProvider(new RecipeGenerator(gen));
         }
+        gen.addProvider(new RecipeGenerator(gen));
 
         if(e.includeClient())
         {
