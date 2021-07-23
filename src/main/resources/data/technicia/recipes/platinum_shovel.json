@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A",
+    "S",
+    "S"
+  ],
+  "key": {
+    "A": {
+      "tag": "minecraft:platinum_ingot"
+    },
+    "S": {
+      "tag": "minecraft:sticks"
+    }
+  },
+  "result": {
+    "item": "technicia:platinum_shovel"
+  }
+}

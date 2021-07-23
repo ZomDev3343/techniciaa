@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "A": {
+      "tag": "minecraft:copper_ingot"
+    },
+    "S": {
+      "tag": "minecraft:sticks"
+    }
+  },
+  "result": {
+    "item": "technicia:copper_pickaxe"
+  }
+}

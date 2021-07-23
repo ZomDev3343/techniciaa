@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA",
+    " S",
+    " S"
+  ],
+  "key": {
+    "A": {
+      "tag": "minecraft:osmium_ingot"
+    },
+    "S": {
+      "tag": "minecraft:sticks"
+    }
+  },
+  "result": {
+    "item": "technicia:osmium_hoe"
+  }
+}

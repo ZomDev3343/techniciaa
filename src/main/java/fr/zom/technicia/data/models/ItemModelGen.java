@@ -1,22 +1,19 @@
 package fr.zom.technicia.data.models;
 
-import com.google.common.collect.Sets;
 import fr.zom.technicia.Technicia;
+import fr.zom.technicia.data.DataGen;
 import fr.zom.technicia.init.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.TieredItem;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.RegistryObject;
-
-import java.util.Collections;
 
 public class ItemModelGen extends ItemModelProvider {
 
     public ItemModelGen(DataGenerator generator) {
-        super(generator, Technicia.MODID, new ExistingFileHelper(Collections.emptyList(), Sets.newHashSet(), false));
+        super(generator, Technicia.MODID,  DataGen.DISABLED_FH);
     }
 
     @Override

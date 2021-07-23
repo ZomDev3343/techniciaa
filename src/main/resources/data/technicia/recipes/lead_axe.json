@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA",
+    "AS",
+    " S"
+  ],
+  "key": {
+    "A": {
+      "tag": "minecraft:lead_ingot"
+    },
+    "S": {
+      "tag": "minecraft:sticks"
+    }
+  },
+  "result": {
+    "item": "technicia:lead_pickaxe"
+  }
+}

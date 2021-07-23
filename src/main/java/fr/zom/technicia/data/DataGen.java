@@ -1,17 +1,26 @@
 package fr.zom.technicia.data;
 
+import com.google.common.collect.Sets;
 import fr.zom.technicia.Technicia;
 import fr.zom.technicia.data.models.BlockstateGenerator;
 import fr.zom.technicia.data.models.ItemModelGen;
 import fr.zom.technicia.data.other.LangGenerator;
+import fr.zom.technicia.data.other.tags.BlockTagGenerator;
+import fr.zom.technicia.data.other.tags.ItemTagGenerator;
 import fr.zom.technicia.data.recipes.RecipeGenerator;
+import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
+import java.util.Collections;
+
 @Mod.EventBusSubscriber(modid = Technicia.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGen {
+
+    public static final ExistingFileHelper DISABLED_FH = new ExistingFileHelper(Collections.emptyList(), Sets.newHashSet(), false);
 
     @SubscribeEvent
     public static void dataGen(final GatherDataEvent e)
@@ -21,8 +30,11 @@ public class DataGen {
 
         if(e.includeServer())
         {
+            gen.addProvider(new RecipeGenerator(gen));
+            BlockTagsProvider blockTags = new BlockTagGenerator(gen);
+            gen.addProvider(blockTags);
+            gen.addProvider(new ItemTagGenerator(gen, blockTags));
         }
-        gen.addProvider(new RecipeGenerator(gen));
 
         if(e.includeClient())
         {
