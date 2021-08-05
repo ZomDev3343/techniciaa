@@ -61,6 +61,7 @@ public class ModItems {
     public static final RegistryObject<Item> PLATINUM_HOE = ITEMS.register("platinum_hoe", () -> new BaseItemHoe(ModItemTiers.PLATINUM));
     public static final RegistryObject<Item> NIOBIUM_HOE = ITEMS.register("niobium_hoe", () -> new BaseItemHoe(ModItemTiers.NIOBIUM));
 
+    public static final RegistryObject<Item> BACKPACK = ITEMS.register("backpack", ItemBackpack::new);
 
     public enum ModItemTiers implements IItemTier {
 
