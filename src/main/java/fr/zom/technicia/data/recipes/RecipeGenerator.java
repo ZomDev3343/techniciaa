@@ -4,13 +4,17 @@ import fr.zom.technicia.Technicia;
 import fr.zom.technicia.init.ModBlocks;
 import fr.zom.technicia.init.ModItems;
 import fr.zom.technicia.init.ModTags;
-import net.minecraft.advancements.criterion.InventoryChangeTrigger;
-import net.minecraft.advancements.criterion.ItemPredicate;
-import net.minecraft.data.*;
-import net.minecraft.item.Item;
-import net.minecraft.tags.ITag;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 
 import java.util.function.Consumer;
 
@@ -21,7 +25,7 @@ public class RecipeGenerator extends RecipeProvider {
     }
 
     @Override
-    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
+    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
         ingotsToBlock(consumer, "copper_ingots_to_block", ModItems.COPPER_INGOT.get(), ModBlocks.COPPER_BLOCK.get());
         ingotsToBlock(consumer, "osmium_ingots_to_block", ModItems.OSMIUM_INGOT.get(), ModBlocks.OSMIUM_BLOCK.get());
@@ -81,75 +85,75 @@ public class RecipeGenerator extends RecipeProvider {
 
     }
 
-    private void ingotsToBlock(Consumer<IFinishedRecipe> consumer, String name, IItemProvider ingots, IItemProvider block) {
+    private void ingotsToBlock(Consumer<FinishedRecipe> consumer, String name, ItemLike ingots, ItemLike block) {
         ShapedRecipeBuilder.shaped(block)
                 .pattern("AAA")
                 .pattern("AAA")
                 .pattern("AAA")
                 .define('A', ingots)
-                .unlockedBy("unlock", InventoryChangeTrigger.Instance.hasItems(ingots))
+                .unlockedBy("unlock", InventoryChangeTrigger.TriggerInstance.hasItems(ingots))
                 .save(consumer, new ResourceLocation(Technicia.MODID, name));
     }
 
-    private void blockToIngots(Consumer<IFinishedRecipe> consumer, String name, IItemProvider ingots, IItemProvider block) {
+    private void blockToIngots(Consumer<FinishedRecipe> consumer, String name, ItemLike ingots, ItemLike block) {
         ShapelessRecipeBuilder.shapeless(ingots, 9)
                 .requires(block)
-                .unlockedBy("unlock", InventoryChangeTrigger.Instance.hasItems(block))
+                .unlockedBy("unlock", InventoryChangeTrigger.TriggerInstance.hasItems(block))
                 .save(consumer, new ResourceLocation(Technicia.MODID, name));
     }
 
-    private void sword(Consumer<IFinishedRecipe> consumer, String name, ITag<Item> material, ITag<Item> stick, IItemProvider result) {
+    private void sword(Consumer<FinishedRecipe> consumer, String name, Tag<Item> material, Tag<Item> stick, ItemLike result) {
         ShapedRecipeBuilder.shaped(result)
                 .pattern("A")
                 .pattern("A")
                 .pattern("S")
                 .define('A', material)
                 .define('S', stick)
-                .unlockedBy("unlock", InventoryChangeTrigger.Instance.hasItems(ItemPredicate.Builder.item().of(material).build()))
+                .unlockedBy("unlock", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(material).build()))
                 .save(consumer, new ResourceLocation(Technicia.MODID, name));
     }
 
-    private void pickaxe(Consumer<IFinishedRecipe> consumer, String name, ITag<Item> material, ITag<Item> stick, IItemProvider result) {
+    private void pickaxe(Consumer<FinishedRecipe> consumer, String name, Tag<Item> material, Tag<Item> stick, ItemLike result) {
         ShapedRecipeBuilder.shaped(result)
                 .pattern("AAA")
                 .pattern(" S ")
                 .pattern(" S ")
                 .define('A', material)
                 .define('S', stick)
-                .unlockedBy("unlock", InventoryChangeTrigger.Instance.hasItems(ItemPredicate.Builder.item().of(material).build()))
+                .unlockedBy("unlock", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(material).build()))
                 .save(consumer, new ResourceLocation(Technicia.MODID, name));
     }
 
-    private void axe(Consumer<IFinishedRecipe> consumer, String name, ITag<Item> material, ITag<Item> stick, IItemProvider result) {
+    private void axe(Consumer<FinishedRecipe> consumer, String name, Tag<Item> material, Tag<Item> stick, ItemLike result) {
         ShapedRecipeBuilder.shaped(result)
                 .pattern("AA")
                 .pattern("AS")
                 .pattern(" S")
                 .define('A', material)
                 .define('S', stick)
-                .unlockedBy("unlock", InventoryChangeTrigger.Instance.hasItems(ItemPredicate.Builder.item().of(material).build()))
+                .unlockedBy("unlock", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(material).build()))
                 .save(consumer, new ResourceLocation(Technicia.MODID, name));
     }
 
-    private void shovel(Consumer<IFinishedRecipe> consumer, String name, ITag<Item> material, ITag<Item> stick, IItemProvider result) {
+    private void shovel(Consumer<FinishedRecipe> consumer, String name, Tag<Item> material, Tag<Item> stick, ItemLike result) {
         ShapedRecipeBuilder.shaped(result)
                 .pattern("A")
                 .pattern("S")
                 .pattern("S")
                 .define('A', material)
                 .define('S', stick)
-                .unlockedBy("unlock", InventoryChangeTrigger.Instance.hasItems(ItemPredicate.Builder.item().of(material).build()))
+                .unlockedBy("unlock", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(material).build()))
                 .save(consumer, new ResourceLocation(Technicia.MODID, name));
     }
 
-    private void hoe(Consumer<IFinishedRecipe> consumer, String name, ITag<Item> material, ITag<Item> stick, IItemProvider result) {
+    private void hoe(Consumer<FinishedRecipe> consumer, String name, Tag<Item> material, Tag<Item> stick, ItemLike result) {
         ShapedRecipeBuilder.shaped(result)
                 .pattern("AA")
                 .pattern(" S")
                 .pattern(" S")
                 .define('A', material)
                 .define('S', stick)
-                .unlockedBy("unlock", InventoryChangeTrigger.Instance.hasItems(ItemPredicate.Builder.item().of(material).build()))
+                .unlockedBy("unlock", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(material).build()))
                 .save(consumer, new ResourceLocation(Technicia.MODID, name));
     }
 

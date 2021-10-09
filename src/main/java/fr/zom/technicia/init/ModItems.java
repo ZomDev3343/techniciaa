@@ -2,10 +2,10 @@ package fr.zom.technicia.init;
 
 import fr.zom.technicia.Technicia;
 import fr.zom.technicia.items.*;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.Item;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -61,8 +61,10 @@ public class ModItems {
     public static final RegistryObject<Item> PLATINUM_HOE = ITEMS.register("platinum_hoe", () -> new BaseItemHoe(ModItemTiers.PLATINUM));
     public static final RegistryObject<Item> NIOBIUM_HOE = ITEMS.register("niobium_hoe", () -> new BaseItemHoe(ModItemTiers.NIOBIUM));
 
+    public static final RegistryObject<Item> ORE_BAG = ITEMS.register("ore_bag", ItemOreBag::new);
 
-    public enum ModItemTiers implements IItemTier {
+
+    public enum ModItemTiers implements Tier {
 
 //        WOOD(0, 59, 2.0F, 0.0F, 15, () -> {
 //            return Ingredient.of(ItemTags.PLANKS);

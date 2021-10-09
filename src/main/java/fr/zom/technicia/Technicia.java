@@ -5,8 +5,8 @@ import fr.zom.technicia.init.ModContainers;
 import fr.zom.technicia.init.ModItems;
 import fr.zom.technicia.init.ModTileEntities;
 import fr.zom.technicia.world.OreGeneration;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -19,7 +19,7 @@ public class Technicia {
 
     public static final String MODID = "technicia";
 
-    public static final ItemGroup BLOCKS = new ItemGroup("technicia.blocks_group") {
+    public static final CreativeModeTab BLOCKS = new CreativeModeTab("technicia.blocks_group") {
 
         @Override
         public ItemStack makeIcon() {
@@ -28,7 +28,7 @@ public class Technicia {
 
     };
 
-    public static final ItemGroup ITEMS = new ItemGroup("technicia.items_group") {
+    public static final CreativeModeTab ITEMS = new CreativeModeTab("technicia.items_group") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ModItems.COPPER_INGOT.get());

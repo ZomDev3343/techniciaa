@@ -4,10 +4,10 @@ import fr.zom.technicia.Technicia;
 import fr.zom.technicia.blocks.OreBlock;
 import fr.zom.technicia.data.DataGen;
 import fr.zom.technicia.init.ModBlocks;
-import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fmllegacy.RegistryObject;
 
 public class BlockstateGenerator extends BlockStateProvider {
 

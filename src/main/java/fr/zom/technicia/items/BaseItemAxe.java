@@ -1,17 +1,17 @@
 package fr.zom.technicia.items;
 
 import fr.zom.technicia.Technicia;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Tier;
 
 public class BaseItemAxe extends AxeItem {
 
-    public BaseItemAxe(IItemTier itemTier, ItemGroup group) {
+    public BaseItemAxe(Tier itemTier, CreativeModeTab group) {
         super(itemTier, 5f, -3.2f, new Properties().tab(group));
     }
 
-    public BaseItemAxe(IItemTier itemTier) {
+    public BaseItemAxe(Tier itemTier) {
         this(itemTier, Technicia.ITEMS);
     }
 }

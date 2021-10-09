@@ -4,11 +4,11 @@ import fr.zom.technicia.Technicia;
 import fr.zom.technicia.data.DataGen;
 import fr.zom.technicia.init.ModItems;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.TieredItem;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.TieredItem;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fmllegacy.RegistryObject;
 
 public class ItemModelGen extends ItemModelProvider {
 

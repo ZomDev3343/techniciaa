@@ -1,8 +1,8 @@
 package fr.zom.technicia.items;
 
 import fr.zom.technicia.Technicia;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 
 public class BaseItem extends Item {
 
@@ -10,15 +10,15 @@ public class BaseItem extends Item {
         super(properties);
     }
 
-    public BaseItem(ItemGroup group, int maxStackSize, int maxDamage) {
+    public BaseItem(CreativeModeTab group, int maxStackSize, int maxDamage) {
         this(new Properties().tab(group).stacksTo(maxStackSize).defaultDurability(maxDamage));
     }
 
-    public BaseItem(ItemGroup group, int maxStackSize) {
+    public BaseItem(CreativeModeTab group, int maxStackSize) {
         this(new Properties().tab(group).stacksTo(maxStackSize));
     }
 
-    public BaseItem(ItemGroup group) {
+    public BaseItem(CreativeModeTab group) {
         this(new Properties().tab(group));
     }
 

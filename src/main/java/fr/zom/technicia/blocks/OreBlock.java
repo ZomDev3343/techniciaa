@@ -1,10 +1,9 @@
 package fr.zom.technicia.blocks;
 
-import net.minecraft.block.material.Material;
-import net.minecraftforge.common.ToolType;
+import net.minecraft.world.level.material.Material;
 
 public class OreBlock extends BaseBlock{
-    public OreBlock(float hardness, float resistance, int harvestLevel) {
-        super(Material.STONE, hardness, resistance, ToolType.PICKAXE, harvestLevel);
+    public OreBlock(float hardness, float resistance) {
+        super(Material.STONE, hardness, resistance);
     }
 }

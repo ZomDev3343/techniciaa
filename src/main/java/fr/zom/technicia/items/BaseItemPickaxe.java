@@ -1,17 +1,17 @@
 package fr.zom.technicia.items;
 
 import fr.zom.technicia.Technicia;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.PickaxeItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.Tier;
 
 public class BaseItemPickaxe extends PickaxeItem {
 
-    public BaseItemPickaxe(IItemTier itemTier, ItemGroup group) {
+    public BaseItemPickaxe(Tier itemTier, CreativeModeTab group) {
         super(itemTier, 1, -2.8f, new Properties().tab(group));
     }
 
-    public BaseItemPickaxe(IItemTier itemTier) {
+    public BaseItemPickaxe(Tier itemTier) {
         this(itemTier, Technicia.ITEMS);
     }
 }

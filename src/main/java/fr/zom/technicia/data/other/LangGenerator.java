@@ -3,9 +3,9 @@ package fr.zom.technicia.data.other;
 import fr.zom.technicia.Technicia;
 import fr.zom.technicia.init.ModItems;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.LanguageProvider;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import org.apache.commons.lang3.StringUtils;
 
 public class LangGenerator extends LanguageProvider {

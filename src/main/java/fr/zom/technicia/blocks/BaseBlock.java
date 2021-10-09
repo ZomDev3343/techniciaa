@@ -1,8 +1,7 @@
 package fr.zom.technicia.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraftforge.common.ToolType;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Material;
 
 public class BaseBlock extends Block {
 
@@ -10,7 +9,7 @@ public class BaseBlock extends Block {
         super(properties);
     }
 
-    public BaseBlock(Material mat, float hardness, float resistance, ToolType toolType, int harvestLevel) {
-        super(Properties.of(mat).strength(hardness, resistance).harvestTool(toolType).harvestLevel(harvestLevel).requiresCorrectToolForDrops());
+    public BaseBlock(Material mat, float hardness, float resistance) {
+        super(Properties.of(mat).strength(hardness, resistance).requiresCorrectToolForDrops());
     }
 }
