@@ -7,13 +7,11 @@ import fr.zom.technicia.init.ModTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
 import java.util.function.Consumer;
@@ -62,7 +60,7 @@ public class RecipeGenerator extends RecipeProvider {
         axe(consumer, "copper_axe", ModTags.COPPER_INGOTS, ModTags.STICKS, ModItems.COPPER_AXE.get());
         axe(consumer, "osmium_axe", ModTags.OSMIUM_INGOTS, ModTags.STICKS, ModItems.OSMIUM_AXE.get());
         axe(consumer, "silver_axe", ModTags.SILVER_INGOTS, ModTags.STICKS, ModItems.SILVER_AXE.get());
-        axe(consumer, "lead_axe", ModTags.LEAD_INGOTS, ModTags.STICKS, ModItems.LEAD_PICKAXE.get());
+        axe(consumer, "lead_axe", ModTags.LEAD_INGOTS, ModTags.STICKS, ModItems.LEAD_AXE.get());
         axe(consumer, "tungsten_axe", ModTags.TUNGSTEN_INGOTS, ModTags.STICKS, ModItems.TUNGSTEN_AXE.get());
         axe(consumer, "platinum_axe", ModTags.PLATINUM_INGOTS, ModTags.STICKS, ModItems.PLATINUM_AXE.get());
         axe(consumer, "niobium_axe", ModTags.NIOBIUM_INGOTS, ModTags.STICKS, ModItems.NIOBIUM_AXE.get());
@@ -82,6 +80,14 @@ public class RecipeGenerator extends RecipeProvider {
         hoe(consumer, "tungsten_hoe", ModTags.TUNGSTEN_INGOTS, ModTags.STICKS, ModItems.TUNGSTEN_HOE.get());
         hoe(consumer, "platinum_hoe", ModTags.PLATINUM_INGOTS, ModTags.STICKS, ModItems.PLATINUM_HOE.get());
         hoe(consumer, "niobium_hoe", ModTags.NIOBIUM_INGOTS, ModTags.STICKS, ModItems.NIOBIUM_HOE.get());
+
+        oreSmelting(consumer, "copper_raw_to_ingot", ModTags.COPPER_RAW, ModItems.COPPER_INGOT.get());
+        oreSmelting(consumer, "osmium_raw_to_ingot", ModTags.OSMIUM_RAW, ModItems.OSMIUM_INGOT.get());
+        oreSmelting(consumer, "silver_raw_to_ingot", ModTags.SILVER_RAW, ModItems.SILVER_INGOT.get());
+        oreSmelting(consumer, "lead_raw_to_ingot", ModTags.LEAD_RAW, ModItems.LEAD_INGOT.get());
+        oreSmelting(consumer, "tungsten_raw_to_ingot", ModTags.TUNGSTEN_RAW, ModItems.TUNGSTEN_INGOT.get());
+        oreSmelting(consumer, "platinum_raw_to_ingot", ModTags.PLATINUM_RAW, ModItems.PLATINUM_INGOT.get());
+        oreSmelting(consumer, "niobium_raw_to_ingot", ModTags.NIOBIUM_RAW, ModItems.NIOBIUM_INGOT.get());
 
     }
 
@@ -155,6 +161,23 @@ public class RecipeGenerator extends RecipeProvider {
                 .define('S', stick)
                 .unlockedBy("unlock", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(material).build()))
                 .save(consumer, new ResourceLocation(Technicia.MODID, name));
+    }
+
+    private void oreSmelting(Consumer<FinishedRecipe> consumer, String name, Tag<Item> ore, ItemLike result, float experience, int cookingTime)
+    {
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ore), result, experience, cookingTime)
+                .unlockedBy("unlock", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ore).build()))
+                .save(consumer, new ResourceLocation(Technicia.MODID, name));
+    }
+
+    private void oreSmelting(Consumer<FinishedRecipe> consumer, String name, Tag<Item> ore, ItemLike result, float experience)
+    {
+        oreSmelting(consumer, name, ore, result, experience, 200);
+    }
+
+    private void oreSmelting(Consumer<FinishedRecipe> consumer, String name, Tag<Item> ore, ItemLike result)
+    {
+        oreSmelting(consumer, name, ore, result, 0.1f, 200);
     }
 
 }

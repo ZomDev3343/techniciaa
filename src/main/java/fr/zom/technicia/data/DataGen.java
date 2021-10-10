@@ -2,6 +2,7 @@ package fr.zom.technicia.data;
 
 import com.google.common.collect.Sets;
 import fr.zom.technicia.Technicia;
+import fr.zom.technicia.data.loottable.LootTablesGenerator;
 import fr.zom.technicia.data.models.BlockstateGenerator;
 import fr.zom.technicia.data.models.ItemModelGen;
 import fr.zom.technicia.data.other.LangGenerator;
@@ -34,6 +35,7 @@ public class DataGen {
             BlockTagsProvider blockTags = new BlockTagGenerator(gen);
             gen.addProvider(blockTags);
             gen.addProvider(new ItemTagGenerator(gen, blockTags));
+            gen.addProvider(new LootTablesGenerator(gen));
         }
 
         if(e.includeClient())

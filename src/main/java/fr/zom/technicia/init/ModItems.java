@@ -53,6 +53,14 @@ public class ModItems {
     public static final RegistryObject<Item> PLATINUM_INGOT = ITEMS.register("platinum_ingot", BaseItem::new);
     public static final RegistryObject<Item> NIOBIUM_INGOT = ITEMS.register("niobium_ingot", BaseItem::new);
 
+    public static final RegistryObject<Item> COPPER_RAW = ITEMS.register("copper_raw", BaseItem::new);
+    public static final RegistryObject<Item> OSMIUM_RAW = ITEMS.register("osmium_raw", BaseItem::new);
+    public static final RegistryObject<Item> SILVER_RAW = ITEMS.register("silver_raw", BaseItem::new);
+    public static final RegistryObject<Item> LEAD_RAW = ITEMS.register("lead_raw", BaseItem::new);
+    public static final RegistryObject<Item> TUNGSTEN_RAW = ITEMS.register("tungsten_raw", BaseItem::new);
+    public static final RegistryObject<Item> PLATINUM_RAW = ITEMS.register("platinum_raw", BaseItem::new);
+    public static final RegistryObject<Item> NIOBIUM_RAW = ITEMS.register("niobium_raw", BaseItem::new);
+
     public static final RegistryObject<Item> COPPER_SWORD = ITEMS.register("copper_sword", () -> new BaseItemSword(COPPER));
     public static final RegistryObject<Item> OSMIUM_SWORD = ITEMS.register("osmium_sword", () -> new BaseItemSword(OSMIUM));
     public static final RegistryObject<Item> SILVER_SWORD = ITEMS.register("silver_sword", () -> new BaseItemSword(SILVER));
