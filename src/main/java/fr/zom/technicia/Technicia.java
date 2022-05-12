@@ -1,5 +1,6 @@
 package fr.zom.technicia;
 
+import fr.zom.technicia.init.ModItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -35,7 +36,7 @@ public class Technicia {
 
     private void registerAll(IEventBus bus)
     {
-
+        ModItems.ITEMS.register(bus);
     }
 
 }
